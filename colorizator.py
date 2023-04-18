@@ -22,8 +22,8 @@ class MangaColorizator:
         self.surper_path = surperpath
         self.colorizer = Colorizer().to(device)
         m=torch.load(generator_path, map_location = device)
-        #self.colorizer.generator.load_state_dict(m)
-        self.colorizer.generator=m
+        self.colorizer.generator.load_state_dict(m)
+        # self.colorizer.generator=m
         self.colorizer = self.colorizer.eval()
         self.model = self.colorizer
         srmodel = torch.load(self.surper_path, map_location=torch.device('cpu'))
